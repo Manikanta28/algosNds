@@ -1,0 +1,32 @@
+{
+  "name": "ds-algos-ts",
+  "version": "1.0.0",
+  "description": "Data structures and algorithms in typescript",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run tsc && node dist/Implementaion.js",
+    "precommit": "pretty-quick --staged",
+    "tsc": "tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:Manikanta28/algosNds.git"
+  },
+  "author": "ManiKanta Koppala",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "3.0.4",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "tslint": "5.17.0",
+    "typescript": "3.8.3"
+  },
+  "engines": {
+    "node": ">= 8.9.0"
+  }
+}
