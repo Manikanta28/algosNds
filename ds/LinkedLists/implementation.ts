@@ -72,6 +72,14 @@ class LinkedList {
     this.length++;
     return newNode;
   }
+  public remove(index: number) {
+    const leader = this.traverseToIndex(index - 1);
+    const unwantedNode = leader.next;
+    if (unwantedNode) {
+      leader.next = unwantedNode.next;
+      this.length--;
+    }
+  }
 }
 
 var myLinkedList = new LinkedList(1);
