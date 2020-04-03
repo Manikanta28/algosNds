@@ -3,7 +3,7 @@ interface node {
   next: null | node;
 }
 
-class LinkedList {
+class SingleLinkedList {
   length: number;
   head: node;
   tail: node;
@@ -82,7 +82,7 @@ class LinkedList {
   }
 }
 
-var myLinkedList = new LinkedList(1);
+var myLinkedList = new SingleLinkedList(1);
 myLinkedList.append(2);
 myLinkedList.append(3);
 myLinkedList.prepend(0);
