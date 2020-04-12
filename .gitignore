@@ -21,4 +21,6 @@ lerna-debug.log*
 *.sln
 *.sw?
 **/*.js.map
-**/*.js
+
+
+package.lock.json
