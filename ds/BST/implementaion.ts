@@ -88,24 +88,37 @@ class BinarySearchTree {
     return traversal.join('->');
   }
 
-  postOrderTraversal() {
+  postOrderTraversal(root = this.root) {
     // <right> -> <left> -> <root>
     //     9
     //  4     20
     //1  6  15  170
-    let roots: Array<bstNode> = [];
-    let traversal: Array<any> = [];
 
-    if (this.root !== null) {
-      roots.push(this.root);
+    if (root?.left) {
+      this.postOrderTraversal(root.left);
     }
+    if (root?.right) {
+      this.postOrderTraversal(root.right);
+    }
+
+    console.log(root?.value);
   }
 
-  inOrderTraversal() {
+  inOrderTraversal(root = this.root) {
     // <left> -> <root> -> <right>
     //     9
     //  4     20
     //1  6  15  170
+
+    if (root?.left) {
+      this.inOrderTraversal(root.left);
+    }
+
+    console.log(root?.value);
+
+    if (root?.right) {
+      this.inOrderTraversal(root.right);
+    }
   }
 
   remove() {}
