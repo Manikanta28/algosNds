@@ -21,7 +21,6 @@ class BinarySearchTree {
     this.root = null;
   }
   insert(value: any) {
-    //Code here
     if (this.root === null) {
       this.root = new BSTNode(value);
     } else {
@@ -61,7 +60,55 @@ class BinarySearchTree {
       }
     }
   }
-  // remove
+  preOrderTraversal() {
+    // <root> -> <left> -> <right>
+    //     9
+    //  4     20
+    //1  6  15  170
+    let roots: Array<bstNode> = [];
+    let traversal: Array<any> = [];
+
+    if (this.root !== null) {
+      roots.push(this.root);
+    }
+
+    while (roots.length) {
+      let lastElement = roots.pop();
+      traversal.push(lastElement?.value);
+      //Pushing right first so that we can pick left element first while popping
+      if (lastElement?.right) {
+        roots.push(lastElement.right);
+      }
+      //will be picked while popping
+      if (lastElement?.left) {
+        roots.push(lastElement.left);
+      }
+    }
+
+    return traversal.join('->');
+  }
+
+  postOrderTraversal() {
+    // <right> -> <left> -> <root>
+    //     9
+    //  4     20
+    //1  6  15  170
+    let roots: Array<bstNode> = [];
+    let traversal: Array<any> = [];
+
+    if (this.root !== null) {
+      roots.push(this.root);
+    }
+  }
+
+  inOrderTraversal() {
+    // <left> -> <root> -> <right>
+    //     9
+    //  4     20
+    //1  6  15  170
+  }
+
+  remove() {}
 }
 
 const tree = new BinarySearchTree();
@@ -73,6 +120,8 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 JSON.stringify(traverse(tree.root));
+
+console.log(tree.preOrderTraversal());
 
 //     9
 //  4     20
