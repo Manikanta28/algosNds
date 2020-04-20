@@ -121,7 +121,46 @@ class BinarySearchTree {
     }
   }
 
-  remove() {}
+  remove(value: any) {
+    if (!this.root) {
+      return false;
+    }
+    let currentNode: bstNode | null = this.root;
+    let parentNode: bstNode | null = null;
+    let direction: string = '';
+    while (currentNode) {
+      if (value < currentNode.value) {
+        direction = 'left';
+        parentNode = currentNode;
+        currentNode = currentNode.left;
+      } else if (value > currentNode.value) {
+        direction = 'right';
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      } else if (value === currentNode.value) {
+        /**
+         * Then we end up having 3 scenarios to tackle
+         * 1. if there are no childs then just point parent node in that direction to null
+         * 2. only one child is there then point parent node in that direaction to child
+         * 3. Two childrens are there then =>
+         *  a. find min in right sub tree, copy that value in targetted node & delete duplicate from right sub tree
+         *  a. find max in left sub tree, copy that value in targetted node & delete duplicate from left sub tree
+         */
+        if (currentNode.left === null && currentNode.right === null) {
+          //case 1
+          if (parentNode) parentNode[direction] = null;
+        } else if (currentNode.left === null || currentNode.right === null) {
+          //ccase 2
+          if (parentNode) {
+            parentNode[direction] = currentNode.left !== null ? currentNode.left : currentNode.right;
+          }
+        } else {
+          //case 3
+          //TODO: happy for PRS :)
+        }
+      }
+    }
+  }
 }
 
 const tree = new BinarySearchTree();
