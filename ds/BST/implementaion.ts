@@ -94,11 +94,11 @@ class BinarySearchTree {
     //  4     20
     //1  6  15  170
 
-    if (root?.left) {
-      this.postOrderTraversal(root.left);
-    }
     if (root?.right) {
       this.postOrderTraversal(root.right);
+    }
+    if (root?.left) {
+      this.postOrderTraversal(root.left);
     }
 
     console.log(root?.value);
